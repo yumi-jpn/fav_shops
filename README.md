@@ -28,14 +28,24 @@
 - has_many :shops
 
 ## shopsテーブル
+| Column    | Type       | Options                      |
+| --------- | ---------- | ---------------------------- |
+| shop_name | string     | null:false                   |
+| user      | references | null:false, foreign_key: true|
+| card      | references | null:false, foreign_key: true|
+
+### Association
+- has_many :users
+- belongs_to :card
+
+## itemsテーブル
 
 | Column    | Type      | Options                      |
 | --------- | -------   | ---------------------------- |
-| shop_name | string    | null:false                   |
-| item      | string    | null:false                   |
+| item_name | string    | null:false                   |
 | price     | integer   |                              |
 | genre_id  | integer   | null:false                   |
-| user      | references| null:false, foreign_key: true|
+| card      | references| null:false, foreign_key: true|
 
 ### Association
-- belongs_to :user
+- belongs_to :shop
